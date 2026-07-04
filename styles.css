@@ -1,6 +1,6 @@
 /* ==========================================================================
    Mad Over Buildings (MOB) - Design System & Styling
-   Aesthetics: Apple + Stripe + Linear Inspired (Charcoal Dark Theme, Steel Blue & Amber)
+   Aesthetics: Premium Gold & Deep Blue — Luxury B2B Theme
    ========================================================================== */
 
 /* ── Reset & Variables ── */
@@ -9,34 +9,40 @@
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* Color Palette - Premium Light Theme Default */
-  --bg-deep: #f8fafc;           /* Ultra-clean light slate background */
-  --bg-alt: #ffffff;            /* Pure white for alternating sections */
-  --bg-panel: rgba(255, 255, 255, 0.85); /* Semi-transparent white card panels */
-  --bg-glass: rgba(255, 255, 255, 0.9);   /* Header white glass overlay */
-  
-  --primary-blue: #1e40af;      /* Rich Steel Blue accent (darker for accessibility) */
-  --primary-blue-hover: #1d4ed8;
-  --primary-blue-glow: rgba(30, 64, 175, 0.1);
-  
-  --gold-accent: #b45309;       /* Deep Amber/Gold highlight */
-  --gold-accent-glow: rgba(180, 83, 9, 0.15);
-  
-  --border-light: rgba(15, 23, 42, 0.08); /* Dark slate thin border */
-  --border-focus: rgba(30, 64, 175, 0.3);
-  --border-gold: rgba(180, 83, 9, 0.3);
-  
-  --text-primary: #0f172a;      /* Deep Slate main text */
-  --text-secondary: #475569;    /* Muted Slate text */
-  --text-muted: #94a3b8;        /* Light Slate placeholder/muted elements */
-  
-  --whatsapp-color: #16a34a;    /* WhatsApp green adjusted for light backgrounds */
-  
+  /* Color Palette - Premium Gold Theme */
+  --bg-deep: #fdfbf6;           /* Warm ivory-white base */
+  --bg-alt: #ffffff;
+  --bg-panel: rgba(255, 251, 240, 0.9);
+  --bg-glass: rgba(255, 253, 245, 0.92);
+
+  /* Gold as PRIMARY accent */
+  --gold-accent: #c47d0e;           /* Rich, saturated gold */
+  --gold-deep: #92580a;             /* Deep burnished gold */
+  --gold-light: #f6a623;            /* Bright gleaming gold */
+  --gold-accent-glow: rgba(196, 125, 14, 0.18);
+  --gold-gradient: linear-gradient(135deg, #f6a623 0%, #c47d0e 50%, #92580a 100%);
+  --gold-gradient-shine: linear-gradient(135deg, #fbbf24 0%, #d97706 40%, #b45309 100%);
+
+  /* Blue as SECONDARY/supportive accent */
+  --primary-blue: #1e3a8a;
+  --primary-blue-hover: #1e40af;
+  --primary-blue-glow: rgba(30, 58, 138, 0.1);
+
+  --border-light: rgba(15, 23, 42, 0.07);
+  --border-focus: rgba(196, 125, 14, 0.4);
+  --border-gold: rgba(196, 125, 14, 0.35);
+
+  --text-primary: #1a1207;      /* Deep warm near-black */
+  --text-secondary: #57493a;    /* Warm medium brown-gray */
+  --text-muted: #a08c72;        /* Warm muted gold-tan */
+
+  --whatsapp-color: #16a34a;
+
   /* Layout Settings */
   --border-radius: 12px;
   --border-radius-lg: 20px;
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --cursor-glow-color: rgba(30, 64, 175, 0.06);
+  --cursor-glow-color: rgba(196, 125, 14, 0.07);
 }
 
 
@@ -49,9 +55,9 @@
 
 body {
   background-color: var(--bg-deep);
-  background-image: 
-    linear-gradient(to right, rgba(30, 64, 175, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(30, 64, 175, 0.025) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, rgba(196, 125, 14, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(196, 125, 14, 0.04) 1px, transparent 1px);
   background-size: 36px 36px;
   color: var(--text-primary);
   font-family: var(--font-body);
@@ -178,34 +184,34 @@ button, input, textarea, select {
   will-change: transform, opacity;
 }
 
-/* Orb 1 — Deep Blue, top-left */
+/* Orb 1 — Deep Gold, top-left */
 .orb-1 {
-  width: 650px;
-  height: 650px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.38) 0%, transparent 70%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.42) 0%, transparent 70%);
   top: -8%;
   left: -10%;
-  opacity: 0.55;
+  opacity: 0.6;
   animation: orbDrift1 28s infinite ease-in-out alternate;
 }
 
-/* Orb 2 — Indigo/Violet, top-right */
+/* Orb 2 — Amber/Warm Gold, top-right */
 .orb-2 {
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(99, 55, 220, 0.32) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(196, 125, 14, 0.35) 0%, transparent 70%);
   top: 5%;
   right: -12%;
-  opacity: 0.45;
+  opacity: 0.55;
   animation: orbDrift2 34s infinite ease-in-out alternate;
   animation-delay: -8s;
 }
 
-/* Orb 3 — Cyan, mid-left */
+/* Orb 3 — Deep Blue, mid-left */
 .orb-3 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.25) 0%, transparent 70%);
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(30, 58, 138, 0.28) 0%, transparent 70%);
   top: 38%;
   left: -5%;
   opacity: 0.5;
@@ -213,35 +219,35 @@ button, input, textarea, select {
   animation-delay: -14s;
 }
 
-/* Orb 4 — Amber/Gold, center */
+/* Orb 4 — Bright Gold, center */
 .orb-4 {
-  width: 560px;
-  height: 560px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, transparent 70%);
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.30) 0%, transparent 70%);
   top: 45%;
   left: 38%;
-  opacity: 0.45;
+  opacity: 0.55;
   animation: orbDrift4 30s infinite ease-in-out alternate;
   animation-delay: -5s;
 }
 
-/* Orb 5 — Pink/Rose, bottom-right */
+/* Orb 5 — Burnished Gold/Orange, bottom-right */
 .orb-5 {
-  width: 620px;
-  height: 620px;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%);
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.32) 0%, transparent 70%);
   bottom: 5%;
   right: -8%;
-  opacity: 0.4;
+  opacity: 0.5;
   animation: orbDrift5 38s infinite ease-in-out alternate;
   animation-delay: -18s;
 }
 
-/* Orb 6 — Teal/Emerald, bottom-left */
+/* Orb 6 — Indigo accent, bottom-left */
 .orb-6 {
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, transparent 70%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.2) 0%, transparent 70%);
   bottom: 10%;
   left: 15%;
   opacity: 0.4;
@@ -325,7 +331,10 @@ body:hover .cursor-glow {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: var(--primary-blue);
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   display: inline-block;
   margin-bottom: 12px;
 }
@@ -344,11 +353,11 @@ body:hover .cursor-glow {
 
 .accent-text {
   color: transparent;
-  background: linear-gradient(135deg, var(--primary-blue), #4f46e5, var(--gold-accent), var(--primary-blue));
-  background-size: 300% auto;
+  background: linear-gradient(135deg, #fbbf24 0%, #d97706 35%, #92580a 65%, #f6a623 100%);
+  background-size: 250% auto;
   -webkit-background-clip: text;
   background-clip: text;
-  animation: gradientFlow 8s ease infinite;
+  animation: gradientFlow 5s ease infinite;
 }
 
 @keyframes gradientFlow {
@@ -388,14 +397,15 @@ body:hover .cursor-glow {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary-blue), #1d4ed8);
+  background: var(--gold-gradient-shine);
   color: #ffffff;
-  box-shadow: 0 4px 15px var(--primary-blue-glow);
+  box-shadow: 0 4px 18px rgba(196, 125, 14, 0.35);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #4f46e5, var(--primary-blue-hover));
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #fbbf24, #c47d0e 60%, #78350f);
+  box-shadow: 0 8px 28px rgba(196, 125, 14, 0.55);
   transform: translateY(-2px);
 }
 
@@ -448,10 +458,10 @@ body:hover .cursor-glow {
   left: 0;
   width: 100%;
   height: 2.5px;
-  background: linear-gradient(to right, var(--primary-blue), var(--gold-accent), #4f46e5, var(--primary-blue));
+  background: linear-gradient(to right, var(--gold-light), var(--gold-accent), var(--gold-deep), var(--gold-light));
   background-size: 200% auto;
-  opacity: 0.85;
-  animation: gradientFlow 5s linear infinite;
+  opacity: 0.9;
+  animation: gradientFlow 4s linear infinite;
   pointer-events: none;
 }
 
@@ -508,7 +518,7 @@ body:hover .cursor-glow {
 }
 
 .nav-link:hover, .nav-link.active {
-  color: var(--primary-blue);
+  color: var(--gold-accent);
 }
 
 .nav-link::after {
@@ -518,8 +528,9 @@ body:hover .cursor-glow {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--primary-blue);
+  background: var(--gold-gradient);
   transition: var(--transition-smooth);
+  border-radius: 2px;
 }
 
 .nav-link:hover::after, .nav-link.active::after {
@@ -545,7 +556,7 @@ body:hover .cursor-glow {
 }
 
 .nav-btn-link:hover {
-  color: var(--primary-blue);
+  color: var(--gold-accent);
 }
 
 .nav-btn-link.text-whatsapp {
@@ -2453,28 +2464,29 @@ body:hover .cursor-glow {
 
 /* ── DOMINANT NAV REQUEST QUOTE CTA ── */
 .btn-nav-accent {
-  background: linear-gradient(135deg, var(--primary-blue), #4f46e5) !important;
+  background: linear-gradient(135deg, #fbbf24, #d97706, #b45309) !important;
   color: #ffffff !important;
-  box-shadow: 0 4px 14px rgba(30, 64, 175, 0.25) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 16px rgba(196, 125, 14, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
   font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.12) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .btn-nav-accent:hover {
   transform: translateY(-2px) scale(1.05) !important;
-  box-shadow: 0 8px 25px rgba(30, 64, 175, 0.45) !important;
-  background: linear-gradient(135deg, #2563eb, #4338ca) !important;
+  box-shadow: 0 10px 28px rgba(196, 125, 14, 0.55) !important;
+  background: linear-gradient(135deg, #f6a623, #c47d0e, #78350f) !important;
 }
 
 .btn-hero-accent {
-  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3) !important;
+  box-shadow: 0 10px 25px rgba(196, 125, 14, 0.35) !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .btn-hero-accent:hover {
   transform: translateY(-3px) scale(1.03) !important;
-  box-shadow: 0 15px 30px rgba(30, 64, 175, 0.5) !important;
+  box-shadow: 0 15px 35px rgba(196, 125, 14, 0.55) !important;
 }
 
 /* ── FLOATING WHATSAPP BUTTON ── */
