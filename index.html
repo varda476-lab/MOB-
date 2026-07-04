@@ -99,18 +99,16 @@
       </button>
 
       <nav class="nav-menu" id="navMenu">
-        <a href="#home" class="nav-link active">Home</a>
+        <a href="#products" class="nav-link active">Products</a>
         <a href="#brands" class="nav-link">Brands</a>
-        <a href="#products" class="nav-link">Products</a>
-        <a href="#why-mob" class="nav-link">Why MOB</a>
-        <a href="#personas" class="nav-link">Programs</a>
-        <a href="#showcase" class="nav-link">Showcase</a>
+        <a href="#personas" class="nav-link">Solutions</a>
+        <a href="#showcase" class="nav-link">Projects</a>
         <a href="#coverage" class="nav-link">Coverage</a>
-        <a href="#seo-pages" class="nav-link">SEO Landing</a>
+        <a href="#contact" class="nav-link">Contact</a>
         <div class="nav-buttons">
           <a href="tel:08660423608" class="nav-btn-link"><i class="fa-solid fa-phone"></i> Call Now</a>
           <a href="https://wa.me/918660423608?text=Hi%20MOB%20Team%2C%20I%20need%20a%20quotation%20for%20construction%20materials." target="_blank" class="nav-btn-link text-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-          <button class="btn btn-primary" onclick="scrollToElement('#rfq-section')">Request Quote</button>
+          <button class="btn btn-primary btn-nav-accent" onclick="scrollToElement('#rfq-section')">Request Quote</button>
         </div>
       </nav>
     </div>
@@ -121,17 +119,17 @@
     <div class="hero-overlay"></div>
     <div class="container hero-container">
       <div class="hero-info scroll-reveal">
-        <span class="hero-tagline">B2B Construction & Interior Sourcing</span>
-        <h1 class="hero-title">Building Materials. <br><span class="accent-text">Delivered On Time.</span></h1>
+        <span class="hero-tagline">B2B Sourcing Partner</span>
+        <h1 class="hero-title">Construction & Interior Materials. <br><span class="accent-text">Delivered Exactly When You Need Them.</span></h1>
         <p class="hero-desc">
           One destination for architects, contractors, builders, and interior designers. Access leading construction and interior brands with same-day delivery across Bengaluru.
         </p>
         
         <div class="hero-actions">
-          <button class="btn btn-primary btn-lg" onclick="scrollToElement('#rfq-section')">
+          <button class="btn btn-primary btn-lg btn-hero-accent" onclick="scrollToElement('#rfq-section')">
             <i class="fa-solid fa-file-invoice"></i> Request a Quote
           </button>
-          <button class="btn btn-outline btn-lg" onclick="openCatalogModal()">
+          <button class="btn btn-outline btn-lg btn-hero-outline" onclick="openCatalogModal()">
             <i class="fa-solid fa-download"></i> Download Catalog
           </button>
         </div>
@@ -153,9 +151,9 @@
             <span class="stat-lbl">Delivery</span>
           </div>
           <div class="stat-card">
-            <i class="fa-solid fa-map-location-dot stat-icon"></i>
-            <span class="stat-num-text">Bengaluru</span>
-            <span class="stat-lbl">Wide Service</span>
+            <i class="fa-solid fa-users-gear stat-icon"></i>
+            <span class="stat-num-text">Architect & Builder</span>
+            <span class="stat-lbl">Focused Sourcing</span>
           </div>
         </div>
       </div>
@@ -1110,7 +1108,7 @@
     <div class="container footer-bottom">
       <div class="footer-map-embed">
         <!-- Interactive Google Map Iframe for MOB Bengaluru Location -->
-        <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m3!1d3888.5833215286127!2d77.61982637579456!3d12.934484015682855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae144e3da8f85f%3A0xe104443df899e1ee!2s385%2C%201st%20A%20Main%20Rd%2C%207th%20Block%2C%20Koramangala%2C%20Bengaluru%2C%20Karnataka%20560095!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe class="map-iframe" src="https://maps.google.com/maps?q=385,%201st%20A%20Main%20Rd,%207th%20Block,%20Koramangala,%20Bengaluru,%20Karnataka%20560095&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="footer-copy">
         <p>&copy; 2026 Mad Over Buildings. All rights reserved. All brand logos and names are registered trademarks of their respective companies.</p>
@@ -1139,19 +1137,25 @@
     </div>
   </div>
 
+  <!-- Floating WhatsApp Quote Widget -->
+  <a href="https://wa.me/918660423608?text=Hi%20MOB%20Team%2C%0A%0AI%20need%20a%20quotation%20for%20construction%20materials.%0A%0AProject%20Location%3A%0ARequired%20Products%3A%0AApproximate%20Quantity%3A%0A%0APlease%20contact%20me." target="_blank" class="floating-whatsapp-btn" aria-label="Chat on WhatsApp" id="floatingWhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>WhatsApp Quote</span>
+  </a>
+
   <!-- Sticky Mobile Action CTA Footer -->
   <div class="sticky-mobile-cta">
     <a href="tel:08660423608" class="mobile-cta-item cta-call">
       <i class="fa-solid fa-phone"></i>
-      <span>Call Now</span>
+      <span>Call</span>
     </a>
     <a href="https://wa.me/918660423608?text=Hi%20MOB%20Team%2C%20I%20need%20a%20quotation%20for%20construction%20materials." target="_blank" class="mobile-cta-item cta-whatsapp">
       <i class="fa-brands fa-whatsapp"></i>
       <span>WhatsApp</span>
     </a>
-    <button onclick="scrollToElement('#rfq-section')" class="mobile-cta-item cta-book">
-      <i class="fa-solid fa-file-invoice"></i>
-      <span>Request Quote</span>
+    <button onclick="scrollToElement('#home'); setTimeout(() => document.getElementById('heroFileInput').click(), 800)" class="mobile-cta-item cta-book">
+      <i class="fa-solid fa-file-arrow-up"></i>
+      <span>Upload BOQ</span>
     </button>
   </div>
 
