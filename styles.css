@@ -157,6 +157,58 @@ button, input, textarea, select {
   background: linear-gradient(135deg, rgba(30, 64, 175, 0.35), rgba(180, 83, 9, 0.25)) border-box;
 }
 
+/* ── Ambient Glowing Background Mesh Orbs ── */
+.bg-glow-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(130px);
+  opacity: 0.12;
+  z-index: -2;
+  pointer-events: none;
+  animation: floatOrb 22s infinite alternate ease-in-out;
+}
+
+.orb-blue {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.45) 0%, rgba(255,255,255,0) 70%);
+  top: 15%;
+  left: -8%;
+  animation-duration: 26s;
+}
+
+.orb-purple {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(124, 92, 237, 0.35) 0%, rgba(255,255,255,0) 70%);
+  bottom: 20%;
+  right: -10%;
+  animation-duration: 32s;
+  animation-delay: -6s;
+}
+
+.orb-amber {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.3) 0%, rgba(255,255,255,0) 70%);
+  top: 45%;
+  left: 40%;
+  animation-duration: 20s;
+  animation-delay: -10s;
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(60px, 40px) scale(1.08);
+  }
+  100% {
+    transform: translate(-40px, 60px) scale(0.96);
+  }
+}
+
 /* ── Interactive Cursor Glow ── */
 .cursor-glow {
   width: 400px;
