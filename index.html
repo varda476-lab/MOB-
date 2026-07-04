@@ -97,21 +97,28 @@
   <!-- Scroll Progress Bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Header Section -->
-  <header class="navbar-header">
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-inner">
+      <span class="announcement-badge">NEW</span>
+      <span>Same-day delivery now available across all of Bengaluru &nbsp;&bull;&nbsp; Upload BOQ &amp; get quote in 30 minutes</span>
+      <button class="announcement-close" onclick="document.getElementById('announcementBar').style.display='none'" aria-label="Close">&times;</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="navbar-header" id="mainHeader">
     <div class="navbar-container">
+      <!-- Logo -->
       <a href="#" class="logo-brand">
-        <span class="logo-text">mob<span class="dot">.</span></span>
-        <span class="logo-sub">MAD OVER BUILDINGS</span>
+        <div class="logo-icon-wrap"><span class="logo-icon-m">M</span></div>
+        <div class="logo-text-wrap">
+          <span class="logo-text">mob<span class="dot">.</span></span>
+          <span class="logo-sub">MAD OVER BUILDINGS</span>
+        </div>
       </a>
 
-      <!-- Mobile Toggle -->
-      <button class="mobile-toggle" aria-label="Toggle menu" id="mobileToggle">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-
+      <!-- Desktop Nav -->
       <nav class="nav-menu" id="navMenu">
         <a href="#products" class="nav-link active">Products</a>
         <a href="#brands" class="nav-link">Brands</a>
@@ -119,77 +126,115 @@
         <a href="#showcase" class="nav-link">Projects</a>
         <a href="#coverage" class="nav-link">Coverage</a>
         <a href="#contact" class="nav-link">Contact</a>
-        <div class="nav-buttons">
-          <a href="tel:08660423608" class="nav-btn-link"><i class="fa-solid fa-phone"></i> Call Now</a>
-          <a href="https://wa.me/918660423608?text=Hi%20MOB%20Team%2C%20I%20need%20a%20quotation%20for%20construction%20materials." target="_blank" class="nav-btn-link text-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-          <button class="btn btn-primary btn-nav-accent" onclick="scrollToElement('#rfq-section')">Request Quote</button>
-        </div>
       </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <a href="tel:08660423608" class="nav-action-link">
+          <i class="fa-solid fa-phone"></i>
+          <span>Call</span>
+        </a>
+        <a href="https://wa.me/918660423608" target="_blank" class="nav-action-link nav-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>WhatsApp</span>
+        </a>
+        <button class="btn-quote-cta" onclick="scrollToElement('#rfq-section')">
+          <i class="fa-solid fa-file-invoice"></i>
+          Get Quote
+        </button>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <button class="mobile-toggle" aria-label="Toggle menu" id="mobileToggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section id="home" class="hero-section">
-    <!-- Hero Particle Canvas -->
     <canvas id="heroCanvas" class="hero-canvas"></canvas>
+
+    <!-- Diagonal gold accent -->
+    <div class="hero-diagonal-accent"></div>
+
+    <!-- Dark overlay -->
     <div class="hero-overlay"></div>
-    <div class="container hero-container">
-      <div class="hero-info scroll-reveal">
-        <span class="hero-tagline"><span id="typewriterText"></span><span class="typewriter-cursor">|</span></span>
-        <h1 class="hero-title">Construction & Interior Materials. <br><span class="accent-text">Delivered Exactly When You Need Them.</span></h1>
+
+    <div class="hero-wrapper">
+      <!-- LEFT: Text Content -->
+      <div class="hero-left scroll-reveal">
+        <!-- Animated badge -->
+        <div class="hero-live-badge">
+          <span class="live-dot"></span>
+          <span id="typewriterText"></span><span class="typewriter-cursor">|</span>
+        </div>
+
+        <h1 class="hero-title">
+          Your Trusted Partner for
+          <span class="hero-title-highlight">Construction &amp;<br>Interior Materials</span>
+        </h1>
+
         <p class="hero-desc">
-          One destination for architects, contractors, builders, and interior designers. Access leading construction and interior brands with same-day delivery across Bengaluru.
+          One destination for architects, contractors &amp; builders. 100+ premium brands. Same-day delivery across Bengaluru.
         </p>
-        
-        <div class="hero-actions">
-          <button class="btn btn-primary btn-lg btn-hero-accent" onclick="scrollToElement('#rfq-section')">
-            <i class="fa-solid fa-file-invoice"></i> Request a Quote
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta-row">
+          <button class="hero-btn-primary" onclick="scrollToElement('#rfq-section')">
+            <i class="fa-solid fa-file-invoice"></i>
+            Request a Quote
           </button>
-          <button class="btn btn-outline btn-lg btn-hero-outline" onclick="openCatalogModal()">
-            <i class="fa-solid fa-download"></i> Download Catalog
+          <button class="hero-btn-secondary" onclick="openCatalogModal()">
+            <i class="fa-solid fa-download"></i>
+            Download Catalog
           </button>
         </div>
 
-        <div class="hero-stats-row">
-          <div class="stat-card">
-            <i class="fa-solid fa-boxes-stacked stat-icon"></i>
-            <span class="stat-num" data-val="5000">0</span><span class="stat-plus">+</span>
-            <span class="stat-lbl">Products</span>
+        <!-- Trust row -->
+        <div class="hero-trust-row">
+          <div class="trust-item">
+            <span class="trust-num">5000<span class="trust-plus">+</span></span>
+            <span class="trust-lbl">Products</span>
           </div>
-          <div class="stat-card">
-            <i class="fa-solid fa-award stat-icon"></i>
-            <span class="stat-num" data-val="100">0</span><span class="stat-plus">+</span>
-            <span class="stat-lbl">Premium Brands</span>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="trust-num">100<span class="trust-plus">+</span></span>
+            <span class="trust-lbl">Brands</span>
           </div>
-          <div class="stat-card">
-            <i class="fa-solid fa-truck-fast stat-icon"></i>
-            <span class="stat-num-text">Same Day</span>
-            <span class="stat-lbl">Delivery</span>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="trust-num">Same</span>
+            <span class="trust-lbl">Day Delivery</span>
           </div>
-          <div class="stat-card">
-            <i class="fa-solid fa-users-gear stat-icon"></i>
-            <span class="stat-num-text">Architect & Builder</span>
-            <span class="stat-lbl">Focused Sourcing</span>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="trust-num">B2B</span>
+            <span class="trust-lbl">Focused</span>
           </div>
         </div>
       </div>
 
-      <!-- Quick BOQ Upload Card -->
-      <div class="hero-upload-card scroll-reveal">
-        <div class="glass-card upload-box">
-          <div class="upload-header">
-            <i class="fa-solid fa-file-pdf upload-header-icon"></i>
-            <h3>Upload Your BOQ</h3>
-            <p>Receive a Material Quote Quickly</p>
+      <!-- RIGHT: BOQ Upload Card -->
+      <div class="hero-right scroll-reveal">
+        <div class="hero-boq-card">
+          <div class="boq-card-header">
+            <div class="boq-icon-wrap"><i class="fa-solid fa-file-pdf"></i></div>
+            <div>
+              <h3 class="boq-card-title">Upload Your BOQ</h3>
+              <p class="boq-card-sub">Get a material quote in 30 minutes</p>
+            </div>
           </div>
-          
+
           <div class="drag-drop-zone" id="heroDragDropZone">
             <input type="file" id="heroFileInput" accept=".pdf,.xls,.xlsx,.doc,.docx" style="display:none;">
             <i class="fa-solid fa-cloud-arrow-up drag-icon"></i>
-            <p class="drag-text">Drag & drop your BOQ PDF/Excel here or <span class="browse-link">browse</span></p>
-            <p class="file-limits">Supported formats: PDF, XLS, XLSX up to 10MB</p>
+            <p class="drag-text">Drag &amp; drop your BOQ or <span class="browse-link">browse</span></p>
+            <p class="file-limits">PDF, XLS, XLSX &mdash; max 10MB</p>
           </div>
-          
+
           <div class="file-selected-indicator" id="heroFileIndicator" style="display:none;">
             <div class="file-info">
               <i class="fa-solid fa-circle-check text-accent"></i>
@@ -198,15 +243,29 @@
             <button class="remove-file-btn" onclick="clearHeroFile()"><i class="fa-solid fa-trash-can"></i></button>
           </div>
 
-          <div class="upload-form-inputs">
-            <input type="tel" id="heroMobileNo" placeholder="Enter 10-Digit Mobile Number" class="form-input">
-            <button class="btn btn-primary btn-block" id="heroSubmitBtn" onclick="submitHeroBOQ()">
-              Submit & Get Quote on WhatsApp
+          <div class="boq-form-row">
+            <input type="tel" id="heroMobileNo" placeholder="Your Mobile Number" class="boq-input">
+            <button class="boq-submit-btn" onclick="submitHeroBOQ()">
+              <i class="fa-brands fa-whatsapp"></i>
+              Get Quote
             </button>
           </div>
-          <p class="lock-notice"><i class="fa-solid fa-shield-halved"></i> Shared securely with MOB Sourcing Team</p>
+
+          <div class="boq-features">
+            <span><i class="fa-solid fa-bolt"></i> 30-min response</span>
+            <span><i class="fa-solid fa-shield-halved"></i> 100% secure</span>
+            <span><i class="fa-solid fa-tag"></i> Best price</span>
+          </div>
         </div>
       </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll to explore</span>
     </div>
   </section>
 
