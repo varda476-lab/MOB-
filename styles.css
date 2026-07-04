@@ -49,6 +49,10 @@
 
 body {
   background-color: var(--bg-deep);
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.015) 1px, transparent 1px);
+  background-size: 30px 30px;
   color: var(--text-primary);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -831,9 +835,9 @@ body:hover .cursor-glow {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 30px 16px;
+  padding: 24px 16px;
   text-align: center;
-  height: 110px;
+  min-height: 160px;
   background: var(--bg-alt);
   border: 1px solid var(--border-light);
   border-radius: var(--border-radius);
@@ -845,13 +849,41 @@ body:hover .cursor-glow {
 .brand-card-item:hover {
   border-color: var(--primary-blue);
   background: var(--bg-alt);
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(30, 64, 175, 0.06);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(30, 64, 175, 0.08);
 }
+
+.brand-logo-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+  transition: var(--transition-smooth);
+}
+
+.brand-card-item:hover .brand-logo-icon {
+  transform: scale(1.18) rotate(6deg);
+}
+
+/* Custom Brand Emblem Colors */
+.paint-asian { color: #db2777; background: rgba(219, 39, 119, 0.08); border-color: rgba(219, 39, 119, 0.15); }
+.paint-berger { color: #2563eb; background: rgba(37, 99, 235, 0.08); border-color: rgba(37, 99, 235, 0.15); }
+.tile-kajaria { color: #059669; background: rgba(5, 150, 105, 0.08); border-color: rgba(5, 150, 105, 0.15); }
+.tile-somany { color: #7c3aed; background: rgba(124, 92, 237, 0.08); border-color: rgba(124, 92, 237, 0.15); }
+.wood-greenply { color: #16a34a; background: rgba(22, 163, 74, 0.08); border-color: rgba(22, 163, 74, 0.15); }
+.wood-century { color: #ea580c; background: rgba(234, 88, 12, 0.08); border-color: rgba(234, 88, 12, 0.15); }
+.hard-hettich { color: #4f46e5; background: rgba(79, 70, 229, 0.08); border-color: rgba(79, 70, 229, 0.15); }
+.hard-hafele { color: #ca8a04; background: rgba(202, 138, 4, 0.08); border-color: rgba(202, 138, 4, 0.15); }
+.bath-jaquar { color: #0891b2; background: rgba(8, 145, 178, 0.08); border-color: rgba(8, 145, 178, 0.15); }
+.bath-grohe { color: #1d4ed8; background: rgba(29, 78, 216, 0.08); border-color: rgba(29, 78, 216, 0.15); }
 
 .brand-logo-text {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 800;
   letter-spacing: -0.5px;
   color: var(--text-primary);
