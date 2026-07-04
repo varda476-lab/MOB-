@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initTypewriter();
   initHeroCanvas();
   initActiveNavOnScroll();
+  initAuroraCanvas();
 });
 
 /* ── Custom Mouse Glow Coordinator ── */
@@ -662,4 +663,62 @@ function initActiveNavOnScroll() {
       }
     });
   }, { passive: true });
+}
+
+/* ── Aurora Canvas Background Animation ── */
+function initAuroraCanvas() {
+  const canvas = document.getElementById("auroraCanvas");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  let t = 0;
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  // Each blob: { base x%, base y%, radius%, r,g,b, speed, phase }
+  const blobs = [
+    { bx: 0.12, by: 0.18, r: 0.42, rgb: [37,  99, 235], speed: 0.00025, phase: 0.0  },
+    { bx: 0.85, by: 0.10, r: 0.40, rgb: [99,  55, 220], speed: 0.00018, phase: 1.2  },
+    { bx: 0.45, by: 0.55, r: 0.38, rgb: [245,158,  11], speed: 0.00022, phase: 2.5  },
+    { bx: 0.10, by: 0.72, r: 0.35, rgb: [6,  182, 212], speed: 0.00030, phase: 0.8  },
+    { bx: 0.80, by: 0.75, r: 0.38, rgb: [236, 72, 153], speed: 0.00015, phase: 3.7  },
+    { bx: 0.55, by: 0.25, r: 0.30, rgb: [16, 185, 129], speed: 0.00028, phase: 5.1  },
+  ];
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    blobs.forEach(blob => {
+      // Oscillate x and y around base position
+      const ox = Math.sin(t * blob.speed * 2 * Math.PI * 60 + blob.phase) * 0.12;
+      const oy = Math.cos(t * blob.speed * 2 * Math.PI * 45 + blob.phase * 0.7) * 0.10;
+
+      const cx = (blob.bx + ox) * canvas.width;
+      const cy = (blob.by + oy) * canvas.height;
+      const rad = blob.r * Math.min(canvas.width, canvas.height);
+
+      // Pulsing opacity
+      const alpha = 0.06 + 0.025 * Math.sin(t * blob.speed * 2 * Math.PI * 30 + blob.phase);
+
+      const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad);
+      grad.addColorStop(0, `rgba(${blob.rgb[0]},${blob.rgb[1]},${blob.rgb[2]},${(alpha * 3).toFixed(3)})`);
+      grad.addColorStop(0.4, `rgba(${blob.rgb[0]},${blob.rgb[1]},${blob.rgb[2]},${(alpha).toFixed(3)})`);
+      grad.addColorStop(1, `rgba(${blob.rgb[0]},${blob.rgb[1]},${blob.rgb[2]},0)`);
+
+      ctx.beginPath();
+      ctx.arc(cx, cy, rad, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+    });
+
+    t++;
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener("resize", resize, { passive: true });
+  draw();
 }

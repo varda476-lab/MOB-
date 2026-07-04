@@ -50,14 +50,25 @@
 body {
   background-color: var(--bg-deep);
   background-image: 
-    linear-gradient(to right, rgba(15, 23, 42, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.015) 1px, transparent 1px);
-  background-size: 30px 30px;
+    linear-gradient(to right, rgba(30, 64, 175, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 64, 175, 0.025) 1px, transparent 1px);
+  background-size: 36px 36px;
   color: var(--text-primary);
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ── Aurora Fixed Canvas ── */
+.aurora-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+  pointer-events: none;
 }
 
 /* ── Typography & Global Elements ── */
@@ -157,56 +168,128 @@ button, input, textarea, select {
   background: linear-gradient(135deg, rgba(30, 64, 175, 0.35), rgba(180, 83, 9, 0.25)) border-box;
 }
 
-/* ── Ambient Glowing Background Mesh Orbs ── */
+/* ── Aurora Mesh Orbs ── */
 .bg-glow-orb {
   position: fixed;
   border-radius: 50%;
-  filter: blur(130px);
-  opacity: 0.12;
+  filter: blur(120px);
   z-index: -2;
   pointer-events: none;
-  animation: floatOrb 22s infinite alternate ease-in-out;
+  will-change: transform, opacity;
 }
 
-.orb-blue {
+/* Orb 1 — Deep Blue, top-left */
+.orb-1 {
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.38) 0%, transparent 70%);
+  top: -8%;
+  left: -10%;
+  opacity: 0.55;
+  animation: orbDrift1 28s infinite ease-in-out alternate;
+}
+
+/* Orb 2 — Indigo/Violet, top-right */
+.orb-2 {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(99, 55, 220, 0.32) 0%, transparent 70%);
+  top: 5%;
+  right: -12%;
+  opacity: 0.45;
+  animation: orbDrift2 34s infinite ease-in-out alternate;
+  animation-delay: -8s;
+}
+
+/* Orb 3 — Cyan, mid-left */
+.orb-3 {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.45) 0%, rgba(255,255,255,0) 70%);
-  top: 15%;
-  left: -8%;
-  animation-duration: 26s;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.25) 0%, transparent 70%);
+  top: 38%;
+  left: -5%;
+  opacity: 0.5;
+  animation: orbDrift3 24s infinite ease-in-out alternate;
+  animation-delay: -14s;
 }
 
-.orb-purple {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(124, 92, 237, 0.35) 0%, rgba(255,255,255,0) 70%);
-  bottom: 20%;
-  right: -10%;
-  animation-duration: 32s;
-  animation-delay: -6s;
-}
-
-.orb-amber {
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(217, 119, 6, 0.3) 0%, rgba(255,255,255,0) 70%);
+/* Orb 4 — Amber/Gold, center */
+.orb-4 {
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, transparent 70%);
   top: 45%;
-  left: 40%;
-  animation-duration: 20s;
-  animation-delay: -10s;
+  left: 38%;
+  opacity: 0.45;
+  animation: orbDrift4 30s infinite ease-in-out alternate;
+  animation-delay: -5s;
 }
 
-@keyframes floatOrb {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(60px, 40px) scale(1.08);
-  }
-  100% {
-    transform: translate(-40px, 60px) scale(0.96);
-  }
+/* Orb 5 — Pink/Rose, bottom-right */
+.orb-5 {
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%);
+  bottom: 5%;
+  right: -8%;
+  opacity: 0.4;
+  animation: orbDrift5 38s infinite ease-in-out alternate;
+  animation-delay: -18s;
+}
+
+/* Orb 6 — Teal/Emerald, bottom-left */
+.orb-6 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, transparent 70%);
+  bottom: 10%;
+  left: 15%;
+  opacity: 0.4;
+  animation: orbDrift6 26s infinite ease-in-out alternate;
+  animation-delay: -22s;
+}
+
+/* ── Unique Drift Keyframes per Orb ── */
+@keyframes orbDrift1 {
+  0%   { transform: translate(0px, 0px)   scale(1);    }
+  33%  { transform: translate(80px, 60px)  scale(1.1);  }
+  66%  { transform: translate(30px, 120px) scale(0.95); }
+  100% { transform: translate(100px, 40px) scale(1.05); }
+}
+
+@keyframes orbDrift2 {
+  0%   { transform: translate(0px,   0px)   scale(1);    }
+  33%  { transform: translate(-70px, 50px)  scale(1.08); }
+  66%  { transform: translate(-40px, 110px) scale(0.92); }
+  100% { transform: translate(-90px, 30px)  scale(1.12); }
+}
+
+@keyframes orbDrift3 {
+  0%   { transform: translate(0px, 0px)    scale(1);    }
+  25%  { transform: translate(90px, -40px) scale(1.15); }
+  75%  { transform: translate(60px, 80px)  scale(0.9);  }
+  100% { transform: translate(120px, 20px) scale(1.06); }
+}
+
+@keyframes orbDrift4 {
+  0%   { transform: translate(0px,   0px)    scale(1);    }
+  40%  { transform: translate(-50px, -60px)  scale(1.12); }
+  80%  { transform: translate(70px,  -30px)  scale(0.94); }
+  100% { transform: translate(-30px, -80px)  scale(1.08); }
+}
+
+@keyframes orbDrift5 {
+  0%   { transform: translate(0px,   0px)   scale(1);    }
+  30%  { transform: translate(-80px, -50px) scale(1.1);  }
+  70%  { transform: translate(-40px, -100px)scale(0.93); }
+  100% { transform: translate(-100px,-30px) scale(1.05); }
+}
+
+@keyframes orbDrift6 {
+  0%   { transform: translate(0px,  0px)   scale(1);    }
+  35%  { transform: translate(70px, -60px) scale(1.14); }
+  70%  { transform: translate(40px,  50px) scale(0.96); }
+  100% { transform: translate(90px, -20px) scale(1.07); }
 }
 
 /* ── Interactive Cursor Glow ── */
