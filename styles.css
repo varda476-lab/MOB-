@@ -1,6 +1,6 @@
 /* ==========================================================================
    Mad Over Buildings (MOB) - Design System & Styling
-   Aesthetics: Premium Gold & Deep Blue — Luxury B2B Theme
+   Aesthetics: Navy Blue + Gold + White — Premium Construction Brand
    ========================================================================== */
 
 /* ── Reset & Variables ── */
@@ -9,42 +9,53 @@
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* Color Palette - Premium Gold Theme */
-  --bg-deep: #fdfbf6;           /* Warm ivory-white base */
-  --bg-alt: #ffffff;
-  --bg-panel: rgba(255, 251, 240, 0.9);
-  --bg-glass: rgba(255, 253, 245, 0.92);
+  /* ── Navy Blue + Gold + White Color System ── */
 
-  /* Gold as PRIMARY accent */
-  --gold-accent: #c47d0e;           /* Rich, saturated gold */
-  --gold-deep: #92580a;             /* Deep burnished gold */
-  --gold-light: #f6a623;            /* Bright gleaming gold */
-  --gold-accent-glow: rgba(196, 125, 14, 0.18);
-  --gold-gradient: linear-gradient(135deg, #f6a623 0%, #c47d0e 50%, #92580a 100%);
-  --gold-gradient-shine: linear-gradient(135deg, #fbbf24 0%, #d97706 40%, #b45309 100%);
+  /* Backgrounds */
+  --bg-deep: #f0f4ff;               /* Soft navy-tinted white */
+  --bg-alt: #ffffff;                /* Pure white sections */
+  --bg-panel: rgba(255,255,255,0.92);
+  --bg-glass: rgba(248, 250, 255, 0.95);
+  --bg-navy: #0a1628;               /* Deep navy for hero/dark sections */
+  --bg-navy-mid: #0f2040;           /* Mid navy */
 
-  /* Blue as SECONDARY/supportive accent */
-  --primary-blue: #1e3a8a;
-  --primary-blue-hover: #1e40af;
-  --primary-blue-glow: rgba(30, 58, 138, 0.1);
+  /* Navy Blue — PRIMARY */
+  --primary-blue: #1e3a8a;          /* Core navy blue */
+  --primary-blue-dark: #0a1628;     /* Deepest navy */
+  --primary-blue-mid: #1d4ed8;      /* Bright blue */
+  --primary-blue-hover: #2563eb;
+  --primary-blue-glow: rgba(30, 58, 138, 0.18);
 
-  --border-light: rgba(15, 23, 42, 0.07);
-  --border-focus: rgba(196, 125, 14, 0.4);
-  --border-gold: rgba(196, 125, 14, 0.35);
+  /* Gold — ACCENT */
+  --gold-accent: #f59e0b;           /* Vibrant amber-gold */
+  --gold-deep: #b45309;             /* Deep burnished gold */
+  --gold-light: #fbbf24;            /* Bright gleaming gold */
+  --gold-pale: #fef3c7;             /* Pale gold tint for backgrounds */
+  --gold-accent-glow: rgba(245, 158, 11, 0.22);
+  --gold-gradient: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #b45309 100%);
+  --gold-gradient-shine: linear-gradient(135deg, #fcd34d 0%, #f59e0b 45%, #d97706 100%);
 
-  --text-primary: #1a1207;      /* Deep warm near-black */
-  --text-secondary: #57493a;    /* Warm medium brown-gray */
-  --text-muted: #a08c72;        /* Warm muted gold-tan */
+  /* Borders */
+  --border-light: rgba(30, 58, 138, 0.1);
+  --border-focus: rgba(245, 158, 11, 0.45);
+  --border-gold: rgba(245, 158, 11, 0.3);
+  --border-navy: rgba(30, 58, 138, 0.2);
+
+  /* Text */
+  --text-primary: #0a1628;          /* Deep navy — strongest text */
+  --text-secondary: #1e3a8a;        /* Navy blue secondary text */
+  --text-body: #374151;             /* Neutral readable body text */
+  --text-muted: #6b7280;            /* Muted gray */
+  --text-on-dark: #f8fafc;          /* White text on dark backgrounds */
 
   --whatsapp-color: #16a34a;
 
-  /* Layout Settings */
+  /* Layout */
   --border-radius: 12px;
   --border-radius-lg: 20px;
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --cursor-glow-color: rgba(196, 125, 14, 0.07);
+  --cursor-glow-color: rgba(245, 158, 11, 0.08);
 }
-
 
 * {
   margin: 0;
@@ -56,10 +67,10 @@
 body {
   background-color: var(--bg-deep);
   background-image:
-    linear-gradient(to right, rgba(196, 125, 14, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(196, 125, 14, 0.04) 1px, transparent 1px);
-  background-size: 36px 36px;
-  color: var(--text-primary);
+    linear-gradient(to right, rgba(30, 58, 138, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 58, 138, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: var(--text-body);
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
@@ -184,34 +195,34 @@ button, input, textarea, select {
   will-change: transform, opacity;
 }
 
-/* Orb 1 — Deep Gold, top-left */
+/* Orb 1 — Deep Navy, top-left */
 .orb-1 {
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.42) 0%, transparent 70%);
+  width: 750px;
+  height: 750px;
+  background: radial-gradient(circle, rgba(30, 58, 138, 0.45) 0%, transparent 70%);
   top: -8%;
   left: -10%;
-  opacity: 0.6;
+  opacity: 0.55;
   animation: orbDrift1 28s infinite ease-in-out alternate;
 }
 
-/* Orb 2 — Amber/Warm Gold, top-right */
+/* Orb 2 — Bright Gold, top-right */
 .orb-2 {
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(196, 125, 14, 0.35) 0%, transparent 70%);
+  width: 680px;
+  height: 680px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.38) 0%, transparent 70%);
   top: 5%;
   right: -12%;
-  opacity: 0.55;
+  opacity: 0.5;
   animation: orbDrift2 34s infinite ease-in-out alternate;
   animation-delay: -8s;
 }
 
-/* Orb 3 — Deep Blue, mid-left */
+/* Orb 3 — Royal Blue, mid-left */
 .orb-3 {
-  width: 520px;
-  height: 520px;
-  background: radial-gradient(circle, rgba(30, 58, 138, 0.28) 0%, transparent 70%);
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.32) 0%, transparent 70%);
   top: 38%;
   left: -5%;
   opacity: 0.5;
@@ -219,38 +230,38 @@ button, input, textarea, select {
   animation-delay: -14s;
 }
 
-/* Orb 4 — Bright Gold, center */
+/* Orb 4 — Amber Gold, center */
 .orb-4 {
   width: 620px;
   height: 620px;
-  background: radial-gradient(circle, rgba(251, 191, 36, 0.30) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.28) 0%, transparent 70%);
   top: 45%;
   left: 38%;
-  opacity: 0.55;
+  opacity: 0.5;
   animation: orbDrift4 30s infinite ease-in-out alternate;
   animation-delay: -5s;
 }
 
-/* Orb 5 — Burnished Gold/Orange, bottom-right */
+/* Orb 5 — Navy Blue, bottom-right */
 .orb-5 {
   width: 650px;
   height: 650px;
-  background: radial-gradient(circle, rgba(217, 119, 6, 0.32) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(10, 22, 40, 0.35) 0%, transparent 70%);
   bottom: 5%;
   right: -8%;
-  opacity: 0.5;
+  opacity: 0.45;
   animation: orbDrift5 38s infinite ease-in-out alternate;
   animation-delay: -18s;
 }
 
-/* Orb 6 — Indigo accent, bottom-left */
+/* Orb 6 — Gold shimmer, bottom-left */
 .orb-6 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(79, 70, 229, 0.2) 0%, transparent 70%);
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.28) 0%, transparent 70%);
   bottom: 10%;
   left: 15%;
-  opacity: 0.4;
+  opacity: 0.45;
   animation: orbDrift6 26s infinite ease-in-out alternate;
   animation-delay: -22s;
 }
@@ -327,16 +338,30 @@ body:hover .cursor-glow {
 
 .section-header .subtitle {
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  letter-spacing: 3.5px;
+  color: var(--primary-blue);
   display: inline-block;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  padding: 5px 14px;
+  background: rgba(30, 58, 138, 0.07);
+  border: 1px solid rgba(30, 58, 138, 0.18);
+  border-radius: 50px;
+  position: relative;
+}
+
+.section-header .subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 2px;
+  background: var(--gold-gradient);
+  border-radius: 2px;
 }
 
 .section-title {
@@ -353,7 +378,7 @@ body:hover .cursor-glow {
 
 .accent-text {
   color: transparent;
-  background: linear-gradient(135deg, #fbbf24 0%, #d97706 35%, #92580a 65%, #f6a623 100%);
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 30%, #f59e0b 65%, #fbbf24 100%);
   background-size: 250% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -444,10 +469,10 @@ body:hover .cursor-glow {
   width: 100%;
   z-index: 100;
   background: var(--bg-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 4px 30px rgba(15, 23, 42, 0.02), 0 1px 0px rgba(30, 64, 175, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(30, 58, 138, 0.12);
+  box-shadow: 0 4px 30px rgba(10, 22, 40, 0.06), 0 1px 0px rgba(245, 158, 11, 0.1);
   transition: var(--transition-smooth);
 }
 

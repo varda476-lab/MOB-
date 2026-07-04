@@ -680,12 +680,12 @@ function initAuroraCanvas() {
 
   // Each blob: { base x%, base y%, radius%, r,g,b, speed, phase }
   const blobs = [
-    { bx: 0.12, by: 0.18, r: 0.44, rgb: [245, 158,  11], speed: 0.00025, phase: 0.0  }, // Gold
-    { bx: 0.85, by: 0.10, r: 0.40, rgb: [196, 125,  14], speed: 0.00018, phase: 1.2  }, // Amber
-    { bx: 0.45, by: 0.55, r: 0.38, rgb: [251, 191,  36], speed: 0.00022, phase: 2.5  }, // Bright Gold
-    { bx: 0.10, by: 0.72, r: 0.35, rgb: [30,   58, 138], speed: 0.00030, phase: 0.8  }, // Deep Blue
-    { bx: 0.80, by: 0.75, r: 0.38, rgb: [217, 119,   6], speed: 0.00015, phase: 3.7  }, // Burnished Gold
-    { bx: 0.55, by: 0.25, r: 0.30, rgb: [79,   70, 229], speed: 0.00028, phase: 5.1  }, // Indigo accent
+    { bx: 0.12, by: 0.18, r: 0.46, rgb: [30,  58, 138], speed: 0.00025, phase: 0.0  }, // Deep Navy
+    { bx: 0.85, by: 0.10, r: 0.40, rgb: [245,158,  11], speed: 0.00018, phase: 1.2  }, // Bright Gold
+    { bx: 0.45, by: 0.55, r: 0.38, rgb: [29,  78, 216], speed: 0.00022, phase: 2.5  }, // Royal Blue
+    { bx: 0.10, by: 0.72, r: 0.35, rgb: [251,191,  36], speed: 0.00030, phase: 0.8  }, // Gleam Gold
+    { bx: 0.80, by: 0.75, r: 0.38, rgb: [10,  22,  40], speed: 0.00015, phase: 3.7  }, // Darkest Navy
+    { bx: 0.55, by: 0.25, r: 0.32, rgb: [217,119,   6], speed: 0.00028, phase: 5.1  }, // Amber
   ];
 
   function draw() {
