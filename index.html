@@ -88,6 +88,9 @@
   <div class="bg-glow-orb orb-purple"></div>
   <div class="bg-glow-orb orb-amber"></div>
 
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <!-- Header Section -->
   <header class="navbar-header">
     <div class="navbar-container">
@@ -121,10 +124,12 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero-section">
+    <!-- Hero Particle Canvas -->
+    <canvas id="heroCanvas" class="hero-canvas"></canvas>
     <div class="hero-overlay"></div>
     <div class="container hero-container">
       <div class="hero-info scroll-reveal">
-        <span class="hero-tagline">B2B Sourcing Partner</span>
+        <span class="hero-tagline"><span id="typewriterText"></span><span class="typewriter-cursor">|</span></span>
         <h1 class="hero-title">Construction & Interior Materials. <br><span class="accent-text">Delivered Exactly When You Need Them.</span></h1>
         <p class="hero-desc">
           One destination for architects, contractors, builders, and interior designers. Access leading construction and interior brands with same-day delivery across Bengaluru.

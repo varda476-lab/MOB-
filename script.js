@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initStatsCounters();
   initDragAndDrop();
   initCatalogGate();
+  initScrollProgress();
+  initTypewriter();
+  initHeroCanvas();
+  initActiveNavOnScroll();
 });
 
 /* ── Custom Mouse Glow Coordinator ── */
@@ -509,4 +513,153 @@ function showToast(message, isError = false) {
   setTimeout(() => {
     toast.classList.remove("show");
   }, 4000);
+}
+
+/* ── Scroll Progress Bar ── */
+function initScrollProgress() {
+  const bar = document.getElementById("scrollProgress");
+  if (!bar) return;
+
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = `${pct}%`;
+  }, { passive: true });
+}
+
+/* ── Typewriter Tagline Effect ── */
+function initTypewriter() {
+  const el = document.getElementById("typewriterText");
+  if (!el) return;
+
+  const phrases = [
+    "B2B Sourcing Partner",
+    "Same-Day Delivery",
+    "100+ Premium Brands",
+    "Architect Focused",
+  ];
+
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function type() {
+    const current = phrases[phraseIndex];
+    if (isDeleting) {
+      el.textContent = current.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      el.textContent = current.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    let delay = isDeleting ? 55 : 90;
+
+    if (!isDeleting && charIndex === current.length) {
+      delay = 1800;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      delay = 400;
+    }
+
+    setTimeout(type, delay);
+  }
+
+  setTimeout(type, 800);
+}
+
+/* ── Hero Particle Canvas ── */
+function initHeroCanvas() {
+  const canvas = document.getElementById("heroCanvas");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  const PARTICLE_COUNT = 55;
+  let particles = [];
+
+  function resize() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  class Particle {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 1.8 + 0.4;
+      this.speedX = (Math.random() - 0.5) * 0.4;
+      this.speedY = (Math.random() - 0.5) * 0.4;
+      this.opacity = Math.random() * 0.45 + 0.1;
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+        this.reset();
+      }
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(148, 163, 184, ${this.opacity})`;
+      ctx.fill();
+    }
+  }
+
+  function connectParticles() {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 110) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(148, 163, 184, ${0.06 * (1 - dist / 110)})`;
+          ctx.lineWidth = 0.6;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    connectParticles();
+    requestAnimationFrame(animate);
+  }
+
+  resize();
+  window.addEventListener("resize", resize, { passive: true });
+  for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+  animate();
+}
+
+/* ── Active Nav Link Highlight on Scroll ── */
+function initActiveNavOnScroll() {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 110;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  }, { passive: true });
 }
